@@ -12,11 +12,11 @@ for (var i = 0; i < elements.length; i++) {
             var text = node.nodeValue;
             var result = pattern.exec(text);
             if (result != null) {
-                var amount = 5.0;
-                // var amount = parseFloat(result.slice(1));
+                result = result[0];
+                //var amount = 5.0;
+                var amount = parseFloat(result.slice(1));
                 // var amount = 1;
-                var num_burritos = 1.0;
-                var result = "illennials";
+                var num_burritos = result /burrito_price;
                 var replacedText = text.replace(result, num_burritos.toString());
                 // replacedText = "as;ldkfja;lsdfj";
                 if (replacedText !== text) {
