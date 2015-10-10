@@ -1,7 +1,7 @@
 {
 "manifest_version": 2,
-    "name": "[your extension name here]",
-    "description": "[your extension description here]",
+    "name": "Burritify",
+    "description": "Converts dollar amounts to burritos.",
     "version": "0.1",
     "content_scripts": [
         {
