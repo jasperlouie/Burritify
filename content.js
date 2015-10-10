@@ -1,5 +1,5 @@
 var elements = document.getElementsByTagName('*');
-var pattern = /Millennials/;///\$\d+/;
+var pattern = /\$\d+\.?\d*/;///\$\d+/;
 var burrito_price = 8.0;
 
 for (var i = 0; i < elements.length; i++) {
@@ -16,8 +16,8 @@ for (var i = 0; i < elements.length; i++) {
                 //var amount = 5.0;
                 var amount = parseFloat(result.slice(1));
                 // var amount = 1;
-                var num_burritos = result /burrito_price;
-                var replacedText = text.replace(result, num_burritos.toString());
+                var num_burritos = amount/burrito_price;
+                var replacedText = text.replace(result, num_burritos.toString()+" burritos");
                 // replacedText = "as;ldkfja;lsdfj";
                 if (replacedText !== text) {
             //     element.replaceChild(document.createTextNode(replacedText), node);
