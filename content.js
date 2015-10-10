@@ -1,6 +1,16 @@
 var elements = document.getElementsByTagName('*');
 var pattern = /\$\d+\.?\d*/;///\$\d+/;
-var burrito_price = 8.25;
+var default_price = 8.25;
+
+function loadPrice() {
+    var price = localStorage["burrito_price"];
+    if (price == undefined) {
+        return default_price;
+    } else {
+        return price;
+    }
+}
+
 
 for (var i = 0; i < elements.length; i++) {
     var element = elements[i];
@@ -16,7 +26,7 @@ for (var i = 0; i < elements.length; i++) {
                 //var amount = 5.0;
                 var amount = parseFloat(result.slice(1));
                 // var amount = 1;
-                var num_burritos = Math.round(amount/burrito_price*10000)/10000;
+                var num_burritos = Math.round(amount/loadPrice()*10000)/10000;
                 var replacedText = text.replace(result, num_burritos.toString()+" burritos");
                 // replacedText = "as;ldkfja;lsdfj";
                 if (replacedText !== text) {

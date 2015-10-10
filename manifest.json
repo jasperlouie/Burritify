@@ -14,5 +14,12 @@
             ],
             "run_at": "document_end"
         }
+    ],
+    "options_ui": {
+        "page":"options.html",
+        "chrome_style": true
+    },
+    "permissions" : [
+        "storage"
     ]
 }
