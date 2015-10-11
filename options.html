@@ -11,16 +11,20 @@ Type of Meat:
  <option value="barbacoa">barbacoa</option>
  <option value="sofritas">sofritas</option>
  <option value="veggie">veggie</option>
+ <option value="custom">custom</option>
 </select>
-
-<!-- <label>
-  <input type="checkbox" id="like">
-  I like colors.
-</label> -->
+<form id="custom" style="visibility:hidden">
+  Unit: 
+  <input type="text" id="units" value="burritos">
+  <br>
+  Price:
+  <input type="text" id="custom_price" value="8.25">
+</form>
+<br>
 
 <div id="status"></div>
 <button id="saveButton">Save</button>
-
 <script src="options.js"></script>
 </body>
 </html>
+

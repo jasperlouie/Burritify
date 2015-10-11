@@ -1,8 +1,9 @@
 var elements = document.getElementsByTagName('*');
 var pattern = /\$\d+,?\d*\.?\d*/;
 var default_price = 8.25;
+var units = "burritos"
 function loadPrice() {
-    chrome.storage.local.get("burrito_price", function(result) {
+    chrome.storage.local.get(["burrito_price", "units"], function(result) {
         //alert("fetched price: " + result.burrito_price);
         console.log(result);
         price = result['burrito_price'];
@@ -13,6 +14,7 @@ function loadPrice() {
             console.log("price defined, using "+price);
             //return price;
         }
+        units = result['units'];
         doReplace();
   });
 }
@@ -33,7 +35,7 @@ function doReplace(){
                     var result2 = result.replace(",","");
                     var amount = parseFloat(result2.slice(1));
                     var num_burritos = Math.round((amount/price)*100)/100;
-                    var replacedText = text.replace(result, num_burritos.toString()+" burritos");
+                    var replacedText = text.replace(result, num_burritos.toString()+" "+units);
                     if (replacedText !== text) {
                     element.replaceChild(document.createTextNode(replacedText), node);
                     }

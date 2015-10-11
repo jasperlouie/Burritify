@@ -15,7 +15,14 @@ function save_options() {
   // var likesColor = document.getElementById('like').checked;
   console.log("check: " + prices[meat]);
   var obj = {};
-  obj['burrito_price'] = prices[meat]; 
+  if(meat == "custom"){
+  		obj['burrito_price'] = document.getElementById('custom_price').value;
+  		obj['units'] = document.getElementById('units').value;
+  }else{
+  		obj['burrito_price'] = prices[meat];
+  		obj['units'] = 'burritos';
+  }
+   
   chrome.storage.local.set(obj);
   var price = "";
   chrome.storage.local.get("burrito_price", function(result) {
@@ -29,3 +36,12 @@ function save_options() {
 
 document.getElementById('saveButton').addEventListener('click',
     save_options);
+
+document.getElementById('meat').addEventListener('click', function() {
+  if(document.getElementById('meat').value == "custom"){
+  	document.getElementById('custom').style.visibility = "visible";
+  }else{
+  	document.getElementById('custom').style.visibility = "hidden";
+  }
+      
+});
