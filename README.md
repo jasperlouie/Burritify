@@ -4,7 +4,7 @@ A Chrome extension that converts measures of currency into burrito units (based 
 Todo:
 [x] Change dollars to burritos
 [x] Make settings page
-[] Change units in settings page
+[x] Change units in settings page
 [] Make button that allows you to disable without going to settings
 [] NLP for written out numbers and "dollar/dollars"
 [] have an optional field for non-plural form of the unit

@@ -13,9 +13,19 @@ function save_options() {
   console.log("Saved");
   var meat = document.getElementById('meat').value;
   // var likesColor = document.getElementById('like').checked;
-  localStorage["burrito_price"] = prices[meat];
-  document.getElementById('save').value = "Saved";
+  console.log("check: " + prices[meat]);
+  var obj = {};
+  obj['burrito_price'] = prices[meat]; 
+  chrome.storage.local.set(obj);
+  var price = "";
+  chrome.storage.local.get("burrito_price", function(result) {
+        //alert("fetched price: " + result.burrito_price);
+        console.log(result);
+        price = result['burrito_price'];
+  });
+  console.log("Burrito Price is now: "+ price);
+  document.getElementById('saveButton').value = "Saved";
 }
 
-document.getElementById('save').addEventListener('click',
+document.getElementById('saveButton').addEventListener('click',
     save_options);
