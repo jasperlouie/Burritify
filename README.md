@@ -1,5 +1,6 @@
 # Burritify
 A Chrome extension that converts measures of currency into burrito units (based on Chipotle prices)
+<img src="screenshots/s1.png" height="400" alt="Screenshot1"/>
 
 Todo:
 [x] Change dollars to burritos
